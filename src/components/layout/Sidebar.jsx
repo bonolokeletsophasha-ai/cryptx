@@ -41,7 +41,7 @@ function Sidebar() {
           <span>Transactions</span>
         </div>
 
-        * Wallet */
+        /* Wallet */
         <div className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-400">
           <span className="text-lg">♧</span>
           <span>Wallet</span>

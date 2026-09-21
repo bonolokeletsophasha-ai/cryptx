@@ -1,14 +1,26 @@
 function ChartVisual() {
   return (
-    <div className="h-full rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+    <div className="h-full min-h-[320px] rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
 
-      {/* Chart heading */}
-      <h2 className="text-lg font-semibold text-[#252525]">
-        BTC Prices
-      </h2>
+      {/* Chart Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-lg font-semibold text-[#252525]">
+            BTC Prices
+          </h2>
+
+          <p className="mt-1 text-xs text-gray-400">
+            Bitcoin price overview
+          </p>
+        </div>
+
+        <span className="rounded-lg bg-[#5546f6]/10 px-3 py-1 text-xs font-medium text-[#5546f6]">
+          BTC
+        </span>
+      </div>
 
       {/* Chart */}
-      <div className="mt-4">
+      <div className="mt-5 w-full overflow-hidden">
 
         <svg
           viewBox="0 0 420 230"
@@ -16,28 +28,43 @@ function ChartVisual() {
           preserveAspectRatio="none"
         >
 
-          {/* Y-axis labels */}
-          <text x="0" y="25" className="fill-gray-400 text-[9px]">
-            $800
-          </text>
+          {/* Horizontal guide lines */}
+          <line
+            x1="40"
+            y1="25"
+            x2="400"
+            y2="25"
+            stroke="#f1f1f5"
+            strokeWidth="1"
+          />
 
-          <text x="0" y="67" className="fill-gray-400 text-[9px]">
-            $600
-          </text>
+          <line
+            x1="40"
+            y1="67"
+            x2="400"
+            y2="67"
+            stroke="#f1f1f5"
+            strokeWidth="1"
+          />
 
-          <text x="0" y="109" className="fill-gray-400 text-[9px]">
-            $400
-          </text>
+          <line
+            x1="40"
+            y1="109"
+            x2="400"
+            y2="109"
+            stroke="#f1f1f5"
+            strokeWidth="1"
+          />
 
-          <text x="0" y="151" className="fill-gray-400 text-[9px]">
-            $200
-          </text>
+          <line
+            x1="40"
+            y1="151"
+            x2="400"
+            y2="151"
+            stroke="#f1f1f5"
+            strokeWidth="1"
+          />
 
-          <text x="4" y="193" className="fill-gray-400 text-[9px]">
-            $0
-          </text>
-
-          {/* Horizontal baseline */}
           <line
             x1="40"
             y1="190"
@@ -47,13 +74,34 @@ function ChartVisual() {
             strokeWidth="1"
           />
 
-          {/* Highlight bar */}
+          {/* Y-axis labels */}
+          <text x="0" y="29" className="fill-gray-400 text-[9px]">
+            $800
+          </text>
+
+          <text x="0" y="71" className="fill-gray-400 text-[9px]">
+            $600
+          </text>
+
+          <text x="0" y="113" className="fill-gray-400 text-[9px]">
+            $400
+          </text>
+
+          <text x="0" y="155" className="fill-gray-400 text-[9px]">
+            $200
+          </text>
+
+          <text x="4" y="194" className="fill-gray-400 text-[9px]">
+            $0
+          </text>
+
+          {/* Highlighted period */}
           <rect
             x="174"
             y="107"
             width="22"
             height="83"
-            rx="2"
+            rx="3"
             fill="#ddd9ff"
           />
 
@@ -73,7 +121,7 @@ function ChartVisual() {
             "
             fill="none"
             stroke="#5546f6"
-            strokeWidth="1.7"
+            strokeWidth="2"
             strokeLinecap="round"
           />
 
@@ -106,7 +154,7 @@ function ChartVisual() {
             $25,240
           </text>
 
-          {/* Month labels */}
+          {/* X-axis labels */}
           <text x="50" y="215" className="fill-gray-400 text-[9px]">
             Jan
           </text>

@@ -59,9 +59,20 @@ function MainContent() {
 
       </div>
 
-      {/* Recent Transactions */}
-      <TransactionTable />
+     {/* Live Market & Transactions */}
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-5">
 
+     {/* Live Market - Wider */}
+      <div className="lg:col-span-3">
+       <LiveMarket />
+      </div>
+
+     {/* Transactions - Narrower */}
+      <div className="lg:col-span-2">
+       <TransactionTable />
+      </div>
+
+      </div>
     </main>
   )
 }

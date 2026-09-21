@@ -43,41 +43,30 @@ const marketData = [
 
 function LiveMarket() {
   return (
-    <div className="h-full rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+    <section className="h-full">
 
       {/* Heading */}
-      <div className="mb-6 flex items-start justify-between">
-        <div>
-          <h2 className="text-lg font-semibold text-[#252525]">
-            Live Market
-          </h2>
-
-          <p className="mt-1 text-xs text-gray-400">
-            Current crypto market
-          </p>
-        </div>
-
-        {/* Live indicator */}
-        <div className="flex items-center gap-1.5 text-xs font-medium text-green-500">
-          <span className="h-2 w-2 rounded-full bg-green-500"></span>
-          Live
-        </div>
+      <div className="mb-5">
+        <h2 className="text-lg font-semibold text-[#252525]">
+          Live Market
+        </h2>
       </div>
 
-      {/* Market List */}
-      <div className="space-y-2">
+      {/* Market Items */}
+      <div className="space-y-1">
 
         {marketData.map((coin) => (
           <div
             key={coin.id}
-            className="flex items-center justify-between rounded-xl px-2 py-3 transition hover:bg-gray-50"
+            className="grid grid-cols-[1.5fr_0.8fr_0.9fr_1.5fr] items-center gap-4 py-4"
           >
 
-            {/* Coin information */}
+            {/* Coin */}
             <div className="flex items-center gap-3">
 
+              {/* Circular Icon */}
               <div
-                className={`flex h-10 w-10 items-center justify-center rounded-xl text-lg font-semibold text-white ${coin.iconBg}`}
+                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-lg font-semibold text-white ${coin.iconBg}`}
               >
                 {coin.icon}
               </div>
@@ -94,15 +83,10 @@ function LiveMarket() {
 
             </div>
 
-            {/* Price and change */}
-            <div className="text-right">
-
-              <p className="text-sm font-semibold text-[#252525]">
-                {coin.price}
-              </p>
-
+            {/* Change */}
+            <div>
               <p
-                className={`mt-0.5 text-xs font-medium ${
+                className={`text-sm font-medium ${
                   coin.positive
                     ? 'text-green-500'
                     : 'text-orange-500'
@@ -110,13 +94,40 @@ function LiveMarket() {
               >
                 {coin.positive ? '▲' : '▼'} {coin.change}
               </p>
+            </div>
 
+            {/* Price */}
+            <div>
+              <p className="text-sm font-semibold text-[#252525]">
+                {coin.price}
+              </p>
+            </div>
+
+            {/* Graph */}
+            <div className="flex justify-end">
+
+              <svg
+                viewBox="0 0 100 40"
+                className="h-10 w-28"
+                fill="none"
+              >
+                <path
+                  d={
+                    coin.positive
+                      ? 'M2 30 C12 25 15 27 23 20 C31 13 37 22 45 18 C54 14 58 21 65 14 C72 7 78 12 84 8 C90 5 94 8 98 3'
+                      : 'M2 8 C12 10 17 6 25 13 C34 20 39 12 47 17 C56 23 61 18 68 25 C76 32 83 24 89 29 C94 32 97 35 98 37'
+                  }
+                  stroke={coin.positive ? '#19c957' : '#ff8a00'}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
             </div>
           </div>
         ))}
 
       </div>
-    </div>
+    </section>
   )
 }
 

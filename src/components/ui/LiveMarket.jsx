@@ -2,41 +2,41 @@ const marketData = [
   {
     id: 1,
     icon: '₿',
-    iconBg: 'bg-[#ffb511]',
+    iconColor: 'text-[#f7931a]',
     name: 'Bitcoin',
-    symbol: 'BTC',
-    price: '$40,291',
-    change: '+0.25%',
+    symbol: 'BTC/USDT',
+    price: '39,786 USD',
+    change: '+14.02%',
     positive: true,
   },
   {
     id: 2,
     icon: '♦',
-    iconBg: 'bg-[#5b4df5]',
+    iconColor: 'text-[#627eea]',
     name: 'Ethereum',
-    symbol: 'ETH',
-    price: '$18,291',
-    change: '+0.25%',
+    symbol: 'ETH/USDT',
+    price: '21,786 USD',
+    change: '+4.02%',
     positive: true,
   },
   {
     id: 3,
     icon: 'Ł',
-    iconBg: 'bg-[#3f5bea]',
+    iconColor: 'text-[#345d9d]',
     name: 'Litecoin',
-    symbol: 'LTC',
-    price: '$8,291',
-    change: '+0.25%',
-    positive: true,
+    symbol: 'LTC/USDT',
+    price: '9,786 USD',
+    change: '-4.02%',
+    positive: false,
   },
   {
     id: 4,
     icon: '✳',
-    iconBg: 'bg-[#19c957]',
+    iconColor: 'text-[#0033ad]',
     name: 'Cardano',
-    symbol: 'ADA',
-    price: '$3,291',
-    change: '-2.05%',
+    symbol: 'ADA/USDT',
+    price: '4,786 USD',
+    change: '+0.02%',
     positive: false,
   },
 ]
@@ -46,7 +46,7 @@ function LiveMarket() {
     <section className="h-full">
 
       {/* Heading */}
-      <div className="mb-5">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold text-[#252525]">
           Live Market
         </h2>
@@ -58,19 +58,22 @@ function LiveMarket() {
         {marketData.map((coin) => (
           <div
             key={coin.id}
-            className="grid grid-cols-[1.5fr_0.8fr_0.9fr_1.5fr] items-center gap-4 py-4"
+            className="grid grid-cols-[1.5fr_0.8fr_0.9fr_1.4fr] items-center gap-4 py-4"
           >
 
             {/* Coin */}
             <div className="flex items-center gap-3">
 
-              {/* Circular Icon */}
-              <div
-                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-lg font-semibold text-white ${coin.iconBg}`}
-              >
-                {coin.icon}
+              {/* White Circular Icon */}
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+                <span
+                  className={`text-lg font-bold ${coin.iconColor}`}
+                >
+                  {coin.icon}
+                </span>
               </div>
 
+              {/* Coin Name */}
               <div>
                 <p className="text-sm font-semibold text-[#252525]">
                   {coin.name}
@@ -85,8 +88,12 @@ function LiveMarket() {
 
             {/* Change */}
             <div>
+              <p className="text-[11px] text-gray-400">
+                Change
+              </p>
+
               <p
-                className={`text-sm font-medium ${
+                className={`mt-1 text-sm font-medium ${
                   coin.positive
                     ? 'text-green-500'
                     : 'text-orange-500'
@@ -98,31 +105,58 @@ function LiveMarket() {
 
             {/* Price */}
             <div>
-              <p className="text-sm font-semibold text-[#252525]">
+              <p className="text-[11px] text-gray-400">
+                Price
+              </p>
+
+              <p className="mt-1 text-sm font-semibold text-[#252525]">
                 {coin.price}
               </p>
             </div>
 
-            {/* Graph */}
+            {/* Shaded Graph */}
             <div className="flex justify-end">
 
               <svg
-                viewBox="0 0 100 40"
-                className="h-10 w-28"
+                viewBox="0 0 120 45"
+                className="h-11 w-32"
                 fill="none"
               >
+
+                {/* Shaded Area */}
                 <path
                   d={
                     coin.positive
-                      ? 'M2 30 C12 25 15 27 23 20 C31 13 37 22 45 18 C54 14 58 21 65 14 C72 7 78 12 84 8 C90 5 94 8 98 3'
-                      : 'M2 8 C12 10 17 6 25 13 C34 20 39 12 47 17 C56 23 61 18 68 25 C76 32 83 24 89 29 C94 32 97 35 98 37'
+                      ? 'M2 34 C14 29 18 31 27 24 C36 17 43 26 52 21 C62 15 68 22 77 15 C86 8 94 13 101 9 C108 6 114 9 118 4 L118 45 L2 45 Z'
+                      : 'M2 8 C14 10 19 7 28 14 C37 21 44 14 53 19 C62 24 70 19 78 27 C86 34 94 27 102 31 C109 34 114 37 118 39 L118 45 L2 45 Z'
                   }
-                  stroke={coin.positive ? '#19c957' : '#ff8a00'}
+                  fill={
+                    coin.positive
+                      ? 'rgba(25, 201, 87, 0.10)'
+                      : 'rgba(255, 138, 0, 0.10)'
+                  }
+                />
+
+                {/* Graph Line */}
+                <path
+                  d={
+                    coin.positive
+                      ? 'M2 34 C14 29 18 31 27 24 C36 17 43 26 52 21 C62 15 68 22 77 15 C86 8 94 13 101 9 C108 6 114 9 118 4'
+                      : 'M2 8 C14 10 19 7 28 14 C37 21 44 14 53 19 C62 24 70 19 78 27 C86 34 94 27 102 31 C109 34 114 37 118 39'
+                  }
+                  stroke={
+                    coin.positive
+                      ? '#19c957'
+                      : '#ff8a00'
+                  }
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
+
               </svg>
+
             </div>
+
           </div>
         ))}
 

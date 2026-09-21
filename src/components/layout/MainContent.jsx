@@ -1,6 +1,7 @@
 import MetricCard from '../ui/MetricCard'
 import ChartVisual from '../ui/ChartVisual'
 import TransactionTable from '../ui/TransactionTable'
+import LiveMarket from '../ui/LiveMarket'
 
 function MainContent() {
   return (

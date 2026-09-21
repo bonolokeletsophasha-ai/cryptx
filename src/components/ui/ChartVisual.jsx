@@ -1,3 +1,5 @@
+import chartStaticData from '../../data/chartStaticData'
+
 function ChartVisual() {
   return (
     <div className="h-full min-h-[320px] rounded-2xl bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
@@ -75,50 +77,30 @@ function ChartVisual() {
           />
 
           {/* Y-axis labels */}
-          <text x="0" y="29" className="fill-gray-400 text-[9px]">
-            $800
-          </text>
-
-          <text x="0" y="71" className="fill-gray-400 text-[9px]">
-            $600
-          </text>
-
-          <text x="0" y="113" className="fill-gray-400 text-[9px]">
-            $400
-          </text>
-
-          <text x="0" y="155" className="fill-gray-400 text-[9px]">
-            $200
-          </text>
-
-          <text x="4" y="194" className="fill-gray-400 text-[9px]">
-            $0
-          </text>
+          {chartStaticData.yAxis.map((label, index) => (
+            <text
+              key={label}
+              x={index === 4 ? '4' : '0'}
+              y={29 + index * 42}
+              className="fill-gray-400 text-[9px]"
+            >
+              {label}
+            </text>
+          ))}
 
           {/* Highlighted period */}
           <rect
-            x="174"
-            y="107"
-            width="22"
-            height="83"
+            x={chartStaticData.highlightBar.x}
+            y={chartStaticData.highlightBar.y}
+            width={chartStaticData.highlightBar.width}
+            height={chartStaticData.highlightBar.height}
             rx="3"
             fill="#ddd9ff"
           />
 
           {/* BTC price line */}
           <path
-            d="
-              M 40 82
-              C 55 80, 65 60, 80 52
-              C 95 43, 108 48, 122 60
-              C 137 73, 148 88, 163 82
-              C 178 76, 187 68, 200 69
-              C 214 70, 225 58, 239 68
-              C 253 78, 258 101, 274 106
-              C 290 111, 301 103, 311 72
-              C 322 40, 340 42, 355 39
-              C 370 36, 385 38, 400 37
-            "
+            d={chartStaticData.path}
             fill="none"
             stroke="#5546f6"
             strokeWidth="2"
@@ -127,8 +109,8 @@ function ChartVisual() {
 
           {/* Highlighted point */}
           <circle
-            cx="187"
-            cy="76"
+            cx={chartStaticData.highlightedPoint.x}
+            cy={chartStaticData.highlightedPoint.y}
             r="4"
             fill="#5546f6"
             stroke="white"
@@ -137,10 +119,10 @@ function ChartVisual() {
 
           {/* Tooltip */}
           <rect
-            x="158"
-            y="42"
-            width="65"
-            height="25"
+            x={chartStaticData.tooltip.x}
+            y={chartStaticData.tooltip.y}
+            width={chartStaticData.tooltip.width}
+            height={chartStaticData.tooltip.height}
             rx="6"
             fill="#5546f6"
           />
@@ -151,33 +133,24 @@ function ChartVisual() {
             textAnchor="middle"
             className="fill-white text-[9px] font-semibold"
           >
-            $25,240
+            {chartStaticData.tooltip.value}
           </text>
 
           {/* X-axis labels */}
-          <text x="50" y="215" className="fill-gray-400 text-[9px]">
-            Jan
-          </text>
+          {chartStaticData.months.map((month, index) => {
+            const positions = [50, 105, 181, 239, 300, 365]
 
-          <text x="105" y="215" className="fill-gray-400 text-[9px]">
-            Mar
-          </text>
-
-          <text x="181" y="215" className="fill-gray-400 text-[9px]">
-            May
-          </text>
-
-          <text x="239" y="215" className="fill-gray-400 text-[9px]">
-            Jul
-          </text>
-
-          <text x="300" y="215" className="fill-gray-400 text-[9px]">
-            Sep
-          </text>
-
-          <text x="365" y="215" className="fill-gray-400 text-[9px]">
-            Nov
-          </text>
+            return (
+              <text
+                key={month}
+                x={positions[index]}
+                y="215"
+                className="fill-gray-400 text-[9px]"
+              >
+                {month}
+              </text>
+            )
+          })}
 
         </svg>
       </div>

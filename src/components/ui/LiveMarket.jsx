@@ -46,7 +46,7 @@ function LiveMarket() {
     <div className="h-full rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
 
       {/* Heading */}
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-6 flex items-start justify-between">
         <div>
           <h2 className="text-lg font-semibold text-[#252525]">
             Live Market
@@ -112,7 +112,6 @@ function LiveMarket() {
               </p>
 
             </div>
-
           </div>
         ))}
 

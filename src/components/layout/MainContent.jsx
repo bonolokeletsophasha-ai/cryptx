@@ -8,10 +8,10 @@ function MainContent() {
     <main className="p-4 sm:p-6">
 
       {/* Top Dashboard Section */}
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
 
         {/* Cryptocurrency Cards */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:col-span-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
 
           <MetricCard
             icon="₿"
@@ -56,7 +56,6 @@ function MainContent() {
         </div>
 
         {/* BTC Chart */}
-        
           <ChartVisual />
 
       </div>

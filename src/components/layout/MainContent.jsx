@@ -1,5 +1,6 @@
 import MetricCard from '../ui/MetricCard'
 import ChartVisual from '../ui/ChartVisual'
+import TransactionTable from '../ui/TransactionTable'
 
 function MainContent() {
   return (
@@ -57,6 +58,10 @@ function MainContent() {
         <ChartVisual />
 
       </div>
+
+        {/* Recent Transactions */}
+      <TransactionTable />
+
     </main>
   )
 }

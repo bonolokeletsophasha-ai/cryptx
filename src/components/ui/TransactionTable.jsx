@@ -11,7 +11,7 @@ function TransactionTable() {
         </h2>
       </div>
 
-      {/* Transactions */}
+      {/* Transaction List */}
       <div className="space-y-5">
 
         {transactionData.map((transaction) => (
@@ -20,58 +20,42 @@ function TransactionTable() {
             className="flex items-center justify-between"
           >
 
-            {/* Left: Coin Icon + Name + Type */}
+            {/* Left Side */}
             <div className="flex items-center gap-3">
 
-              {/* Circular Icon */}
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+              {/* Circle Icon */}
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f8f8fc]">
                 <span
-                  className={`text-lg font-bold ${
-                    transaction.symbol === 'BTC'
-                      ? 'text-[#f7931a]'
-                      : transaction.symbol === 'ETH'
-                      ? 'text-[#627eea]'
-                      : transaction.symbol === 'LTC'
-                      ? 'text-[#345d9d]'
-                      : 'text-[#0033ad]'
-                  }`}
+                  className={`text-xl font-bold ${transaction.iconColor}`}
                 >
-                  {transaction.symbol === 'BTC'
-                    ? '₿'
-                    : transaction.symbol === 'ETH'
-                    ? '♦'
-                    : transaction.symbol === 'LTC'
-                    ? 'Ł'
-                    : '✳'}
+                  ▽
                 </span>
               </div>
 
-              {/* Coin Name + Type */}
+              {/* Coin Name + Transaction Type */}
               <div>
                 <p className="text-sm font-semibold text-[#252525]">
                   {transaction.coin}
                 </p>
 
                 <p className="mt-1 text-xs text-gray-400">
-                  {transaction.type === 'Sell'
-                    ? 'Received'
-                    : 'Buy'}
+                  {transaction.type}
                 </p>
               </div>
 
             </div>
 
-            {/* Right: Price + Date */}
+            {/* Right Side */}
             <div className="text-right">
 
+              {/* Price */}
               <p className="text-sm font-semibold text-[#252525]">
-                {transaction.price.replace('$', '')} USD
+                {transaction.price}
               </p>
 
+              {/* Today + Time */}
               <p className="mt-1 text-xs text-gray-400">
-                {transaction.date === 'Sep 21, 2026'
-                  ? 'Today'
-                  : transaction.date}
+                Today&nbsp;&nbsp;{transaction.time}
               </p>
 
             </div>

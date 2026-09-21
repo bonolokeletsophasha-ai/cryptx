@@ -1,4 +1,4 @@
-import Sidebar from './components/;ayout/Sidebar'
+import Sidebar from './components/layout/Sidebar'
 import Header from './components/layout/Header'
 
 function App() {

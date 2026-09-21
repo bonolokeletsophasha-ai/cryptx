@@ -2,17 +2,17 @@ import MetricCard from '../ui/MetricCard'
 
 function MainContent() {
     return (
-        <main ClassName="p-6">
+        <main className="p-6">
             
-            /* Top Section Dashboard*/ 
+            {/* Top Section Dashboard*/}
             <div className="grid grid-cols-1 gap-5 xl:grid-cols-3">
 
-                /* Crypto Card */
+                {/* Crypto Card */}
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:col-span-2">
 
                     <MetricCard
                         icon="₿"
-                        inconBg="bg-[#ffb511]"
+                        iconBg="bg-[#ffb511]"
                         name="Bitcoin"
                         symbol="BTC"
                         price="$40,291"
@@ -52,7 +52,7 @@ function MainContent() {
 
                 </div>
 
-                /* Chart placeholder */
+                {/* Chart placeholder */}
                 <div className="min-h-[260px] rounded-2xl bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                   <h2 className="text-lg font-semibold text-[#252525]">
                      BTC Prices

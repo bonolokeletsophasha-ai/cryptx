@@ -4,7 +4,7 @@ import TransactionTable from '../ui/TransactionTable'
 
 function MainContent() {
   return (
-    <main className="p-6">
+    <main className="p-4 sm:p-6">
 
       {/* Top Dashboard Section */}
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-3">
@@ -59,7 +59,7 @@ function MainContent() {
 
       </div>
 
-        {/* Recent Transactions */}
+      {/* Recent Transactions */}
       <TransactionTable />
 
     </main>

@@ -58,7 +58,7 @@ function LiveMarket() {
         {marketData.map((coin) => (
           <div
             key={coin.id}
-            className="grid grid-cols-[1.5fr_0.8fr_0.9fr_1.4fr] items-center gap-4 py-4"
+           className="grid h-[72px] grid-cols-[1.5fr_0.8fr_0.9fr_1.4fr] items-center gap-4"
           >
 
             {/* Coin */}

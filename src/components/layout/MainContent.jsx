@@ -61,17 +61,17 @@ function MainContent() {
       </div>
 
      {/* Live Market & Transactions */}
-      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2">
 
-     {/* Live Market - Wider */}
-      <div className="lg:col-span-3">
-       <LiveMarket />
-      </div>
+        {/* Live Market */}
+        <div className="min-w-0">
+           <LiveMarket />
+        </div>
 
-     {/* Transactions - Narrower */}
-      <div className="lg:col-span-2">
-       <TransactionTable />
-      </div>
+        {/* Transactions */}
+        <div className="min-w-0">
+           <TransactionTable />
+        </div>
 
       </div>
     </main>

@@ -12,19 +12,19 @@ function TransactionTable() {
       </div>
 
       {/* Transaction List */}
-      <div className="space-y-5">
+      <div>
 
         {transactionData.map((transaction) => (
           <div
             key={transaction.id}
-            className="flex items-center justify-between"
+            className="flex h-[72px] items-center justify-between"
           >
 
             {/* Left Side */}
             <div className="flex items-center gap-3">
 
               {/* Circle Icon */}
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f8f8fc]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#dedee8] bg-[#f8f8fc]">
                 <span
                   className={`text-xl font-bold ${transaction.iconColor}`}
                 >

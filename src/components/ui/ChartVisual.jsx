@@ -132,9 +132,7 @@ function ChartVisual() {
           </text>
 
         </svg>
-
       </div>
-
     </div>
   )
 }
